@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import HTMLResponse
@@ -10,16 +9,13 @@ app = FastAPI(
     docs_url=None
 )
 
-
 @app.get("/", tags=["Allgemein"])
 def root():
     return {"message": "Willkommen bei LeihBox!"}
 
-
 @app.get("/health", tags=["Allgemein"])
 def health():
     return {"status": "ok"}
-
 
 @app.get("/docs", include_in_schema=False)
 async def custom_swagger_ui():
